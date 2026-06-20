@@ -56,7 +56,7 @@ const Index = () => {
       {/* NAV */}
       <header className="sticky top-0 z-40 backdrop-blur-md">
         <nav className="container mx-auto flex items-center justify-between py-4">
-          <span className="font-display text-3xl text-primary drop-shadow-sm sm:text-4xl lg:text-5xl">С Днём Рождения!</span>
+          <span className="font-display text-xl text-primary drop-shadow-sm sm:text-3xl lg:text-5xl">С Днём Рождения!</span>
           <div className="flex gap-1 rounded-full bg-white/70 p-1 shadow-sm">
             {NAV.map((n) => (
               <button
