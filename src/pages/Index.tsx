@@ -1,15 +1,186 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import Icon from '@/components/ui/icon';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Confetti, Balloons } from '@/components/Festive';
+
+const HERO_IMG =
+  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/files/d5cb3ef5-72f7-4597-b2c6-4e9953b4cc54.jpg';
+const PARTY_IMG =
+  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/files/b2943031-2a53-4f0d-9b93-9ffb7a180724.jpg';
+
+const NAV = [
+  { id: 'home', label: 'Главная', icon: 'Home' },
+  { id: 'dates', label: 'Даты', icon: 'CalendarHeart' },
+  { id: 'gallery', label: 'Галерея', icon: 'Images' },
+  { id: 'wishes', label: 'Пожелания', icon: 'Sparkles' },
+];
+
+const DATES = [
+  { year: '1995', title: 'Появился на свет', icon: 'Baby', text: 'Самый главный день — день рождения!' },
+  { year: '2013', title: 'Окончание школы', icon: 'GraduationCap', text: 'Аттестат и новые горизонты.' },
+  { year: '2018', title: 'Первая работа', icon: 'Briefcase', text: 'Старт большой карьеры.' },
+  { year: '2026', title: 'Этот праздник', icon: 'PartyPopper', text: 'Новый юбилей и куча поздравлений!' },
+];
+
+const GALLERY = [HERO_IMG, PARTY_IMG, HERO_IMG, PARTY_IMG, HERO_IMG, PARTY_IMG];
 
 const Index = () => {
+  const [wish, setWish] = useState({ name: '', text: '' });
+  const [wishes, setWishes] = useState<{ name: string; text: string }[]>([
+    { name: 'Мама', text: 'Сыночек, будь всегда таким же счастливым! Люблю тебя.' },
+    { name: 'Друзья', text: 'С праздником! Пусть мечты сбываются, а удача не покидает!' },
+  ]);
+
+  const scrollTo = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+
+  const addWish = () => {
+    if (!wish.name.trim() || !wish.text.trim()) return;
+    setWishes((p) => [{ name: wish.name, text: wish.text }, ...p]);
+    setWish({ name: '', text: '' });
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
-      <span className="absolute bottom-8 left-1/2 -translate-x-1/2 inline-block bg-[#FF6637] text-white text-sm px-4 py-2 rounded-full whitespace-nowrap">
-        Подождите 5 минут, Юра создает первую версию проекта с нуля
-      </span>
+    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-pink-50 via-purple-50 to-yellow-50 font-sans text-foreground">
+      <Confetti />
+      <Balloons />
+
+      {/* NAV */}
+      <header className="sticky top-0 z-40 backdrop-blur-md">
+        <nav className="container mx-auto flex items-center justify-between py-4">
+          <span className="font-display text-2xl text-primary drop-shadow-sm">С Днём Рождения!</span>
+          <div className="flex gap-1 rounded-full bg-white/70 p-1 shadow-sm">
+            {NAV.map((n) => (
+              <button
+                key={n.id}
+                onClick={() => scrollTo(n.id)}
+                className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-semibold text-foreground/70 transition-colors hover:bg-primary hover:text-white"
+              >
+                <Icon name={n.icon} size={16} />
+                <span className="hidden sm:inline">{n.label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
+      </header>
+
+      {/* HERO */}
+      <section id="home" className="relative z-10 container mx-auto px-4 pb-24 pt-10">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <div className="animate-fade-in">
+            <span className="font-hand text-3xl text-secondary">Сегодня особенный день</span>
+            <h1 className="mt-2 font-display text-5xl leading-tight text-primary drop-shadow-sm sm:text-6xl lg:text-7xl">
+              Поздравляем,<br />Александр!
+            </h1>
+            <p className="mt-6 max-w-md text-lg text-foreground/70">
+              Этот сайт создан с любовью в честь твоего дня рождения. Здесь собраны
+              важные даты, любимые фотографии и тёплые пожелания.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button size="lg" className="rounded-full" onClick={() => scrollTo('gallery')}>
+                <Icon name="Images" size={18} /> Смотреть галерею
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full border-secondary text-secondary hover:bg-secondary hover:text-white" onClick={() => scrollTo('wishes')}>
+                <Icon name="Heart" size={18} /> Оставить пожелание
+              </Button>
+            </div>
+          </div>
+          <div className="animate-sway">
+            <div className="relative mx-auto max-w-sm">
+              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-tr from-primary via-secondary to-accent opacity-40 blur-xl" />
+              <img
+                src={HERO_IMG}
+                alt="Праздник"
+                className="relative rounded-[2rem] border-4 border-white shadow-2xl"
+              />
+              <div className="absolute -right-4 -top-4 animate-wobble rounded-full bg-accent px-4 py-2 font-display text-lg text-accent-foreground shadow-lg">
+                Ура! 🎉
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DATES */}
+      <section id="dates" className="relative z-10 container mx-auto px-4 py-20">
+        <h2 className="text-center font-display text-4xl text-secondary sm:text-5xl">Важные даты</h2>
+        <p className="mt-3 text-center text-foreground/60">Главные моменты жизненного пути</p>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {DATES.map((d, i) => (
+            <div
+              key={i}
+              className="group rounded-3xl border border-white bg-white/80 p-6 text-center shadow-lg transition-transform hover:-translate-y-2"
+            >
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-primary to-secondary text-white shadow-md transition-transform group-hover:scale-110">
+                <Icon name={d.icon} size={28} />
+              </div>
+              <div className="mt-4 font-display text-2xl text-primary">{d.year}</div>
+              <h3 className="mt-1 text-lg font-bold">{d.title}</h3>
+              <p className="mt-2 text-sm text-foreground/60">{d.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* GALLERY */}
+      <section id="gallery" className="relative z-10 container mx-auto px-4 py-20">
+        <h2 className="text-center font-display text-4xl text-primary sm:text-5xl">Галерея</h2>
+        <p className="mt-3 text-center text-foreground/60">Самые тёплые и яркие моменты</p>
+        <div className="mt-12 columns-2 gap-4 lg:columns-3 [&>*]:mb-4">
+          {GALLERY.map((src, i) => (
+            <div key={i} className="break-inside-avoid overflow-hidden rounded-2xl border-4 border-white shadow-lg">
+              <img
+                src={src}
+                alt={`Фото ${i + 1}`}
+                className="w-full transition-transform duration-500 hover:scale-110"
+                style={{ aspectRatio: i % 2 ? '3/4' : '4/3', objectFit: 'cover' }}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* WISHES */}
+      <section id="wishes" className="relative z-10 container mx-auto px-4 py-20">
+        <h2 className="text-center font-display text-4xl text-secondary sm:text-5xl">Пожелания</h2>
+        <p className="mt-3 text-center text-foreground/60">Напиши тёплые слова имениннику</p>
+
+        <div className="mx-auto mt-10 max-w-xl rounded-3xl border border-white bg-white/80 p-6 shadow-xl">
+          <Input
+            placeholder="Ваше имя"
+            value={wish.name}
+            onChange={(e) => setWish({ ...wish, name: e.target.value })}
+            className="rounded-xl"
+          />
+          <Textarea
+            placeholder="Ваше пожелание..."
+            value={wish.text}
+            onChange={(e) => setWish({ ...wish, text: e.target.value })}
+            className="mt-3 min-h-28 rounded-xl"
+          />
+          <Button className="mt-4 w-full rounded-full" size="lg" onClick={addWish}>
+            <Icon name="Send" size={18} /> Отправить пожелание
+          </Button>
+        </div>
+
+        <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
+          {wishes.map((w, i) => (
+            <div key={i} className="rounded-2xl border border-white bg-white/80 p-5 shadow-md">
+              <div className="flex items-center gap-2 text-primary">
+                <Icon name="Heart" size={18} />
+                <span className="font-bold">{w.name}</span>
+              </div>
+              <p className="mt-2 font-hand text-xl leading-snug text-foreground/80">{w.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <footer className="relative z-10 py-10 text-center font-display text-xl text-primary">
+        С любовью и теплом 🎂🎈
+      </footer>
     </div>
   );
 };

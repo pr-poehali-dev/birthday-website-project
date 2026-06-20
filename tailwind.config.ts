@@ -7,6 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+			"./1781969694921347821.html"
 	],
 	prefix: "",
 	theme: {
@@ -18,6 +19,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				display: ['Pacifico', 'cursive'],
+				hand: ['Caveat', 'cursive'],
+				sans: ['Montserrat', 'sans-serif']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -70,25 +76,44 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(24px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'confetti-fall': {
+					'0%': { transform: 'translateY(-10vh) rotate(0deg)', opacity: '1' },
+					'100%': { transform: 'translateY(110vh) rotate(720deg)', opacity: '0.9' }
+				},
+				'float-up': {
+					'0%': { transform: 'translateY(110vh) rotate(-6deg)', opacity: '0' },
+					'10%': { opacity: '0.9' },
+					'90%': { opacity: '0.9' },
+					'100%': { transform: 'translateY(-30vh) rotate(6deg)', opacity: '0' }
+				},
+				'sway': {
+					'0%, 100%': { transform: 'translateX(0) rotate(-3deg)' },
+					'50%': { transform: 'translateX(14px) rotate(3deg)' }
+				},
+				'wobble': {
+					'0%, 100%': { transform: 'rotate(-2deg)' },
+					'50%': { transform: 'rotate(2deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.7s ease-out forwards',
+				'confetti-fall': 'confetti-fall linear infinite',
+				'float-up': 'float-up linear infinite',
+				'sway': 'sway 4s ease-in-out infinite',
+				'wobble': 'wobble 3s ease-in-out infinite'
 			}
 		}
 	},
