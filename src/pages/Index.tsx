@@ -27,8 +27,8 @@ const GALLERY = [
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/a4f83b30-5ee9-411c-85d5-43dc5b7416c6.jpg', position: 'center center' },
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/36f364b3-7543-4d29-9fdf-27af4d3a6cd0.jpg', position: 'center center' },
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/2e0f1ac7-3717-445f-b5ef-3ea83bf82d1a.jpg', position: 'center 30%' },
-  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/582e5f2c-96b2-441b-b9b6-d33ad19a19c7.jpg', position: 'center top' },
-  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/0ab18885-d069-4a33-9a26-2b5f6b35b208.jpg', position: 'center top' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/02d995ea-be41-46cf-9cc4-b2f83e635c2c.jpg', position: 'center center', contain: true },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/6a85fc3c-e636-492c-833d-136c245c5c74.jpg', position: 'center center', contain: true },
 ];
 
 const Index = () => {
