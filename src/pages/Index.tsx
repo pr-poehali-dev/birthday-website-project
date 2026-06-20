@@ -90,13 +90,13 @@ const Index = () => {
             </div>
           </div>
           <div className="animate-sway">
-            <div className="relative mx-auto max-w-sm">
+            <div className="relative mx-auto max-w-lg">
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-tr from-primary via-secondary to-accent opacity-40 blur-xl" />
               <img
                 src="https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/8fbf7388-ce03-4d5c-ac2f-6326cf281645.jpg"
                 alt="Папа"
                 className="relative w-full rounded-[2rem] border-4 border-white shadow-2xl"
-                style={{ objectFit: 'cover', aspectRatio: '4/3' }}
+                style={{ objectFit: 'cover', aspectRatio: '16/10' }}
               />
               <div className="absolute -right-4 -top-4 animate-wobble rounded-full bg-accent px-4 py-2 font-display text-lg text-accent-foreground shadow-lg">
                 Ура! 🎉
