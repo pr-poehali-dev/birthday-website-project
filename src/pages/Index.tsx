@@ -5,11 +5,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Confetti, Balloons } from '@/components/Festive';
 
-const HERO_IMG =
-  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/files/d5cb3ef5-72f7-4597-b2c6-4e9953b4cc54.jpg';
-const PARTY_IMG =
-  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/files/b2943031-2a53-4f0d-9b93-9ffb7a180724.jpg';
-
 const NAV = [
   { id: 'home', label: 'Главная', icon: 'Home' },
   { id: 'dates', label: 'Даты', icon: 'CalendarHeart' },
@@ -24,7 +19,7 @@ const DATES = [
   { year: '2026', title: 'Этот праздник', icon: 'PartyPopper', text: 'Новый юбилей и куча поздравлений!' },
 ];
 
-const GALLERY = [HERO_IMG, PARTY_IMG, HERO_IMG, PARTY_IMG, HERO_IMG, PARTY_IMG];
+const GALLERY = [0, 1, 2, 3, 4, 5];
 
 const Index = () => {
   const [wish, setWish] = useState({ name: '', text: '' });
@@ -43,7 +38,7 @@ const Index = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-pink-50 via-purple-50 to-yellow-50 font-sans text-foreground">
+    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-sky-50 via-cyan-50 to-emerald-50 font-sans text-foreground">
       <Confetti />
       <Balloons />
 
@@ -72,7 +67,7 @@ const Index = () => {
           <div className="animate-fade-in">
             <span className="font-hand text-3xl text-secondary">Сегодня особенный день</span>
             <h1 className="mt-2 font-display text-5xl leading-tight text-primary drop-shadow-sm sm:text-6xl lg:text-7xl">
-              Поздравляем,<br />Александр!
+              Поздравляем,<br />Андрей!
             </h1>
             <p className="mt-6 max-w-md text-lg text-foreground/70">
               Этот сайт создан с любовью в честь твоего дня рождения. Здесь собраны
@@ -90,11 +85,12 @@ const Index = () => {
           <div className="animate-sway">
             <div className="relative mx-auto max-w-sm">
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-tr from-primary via-secondary to-accent opacity-40 blur-xl" />
-              <img
-                src={HERO_IMG}
-                alt="Праздник"
-                className="relative rounded-[2rem] border-4 border-white shadow-2xl"
-              />
+              <div className="relative flex aspect-square items-center justify-center rounded-[2rem] border-4 border-dashed border-primary/40 bg-white/70 text-primary/50 shadow-2xl">
+                <div className="text-center">
+                  <Icon name="ImagePlus" size={48} />
+                  <p className="mt-2 text-sm font-semibold">Место для фото</p>
+                </div>
+              </div>
               <div className="absolute -right-4 -top-4 animate-wobble rounded-full bg-accent px-4 py-2 font-display text-lg text-accent-foreground shadow-lg">
                 Ура! 🎉
               </div>
@@ -129,14 +125,16 @@ const Index = () => {
         <h2 className="text-center font-display text-4xl text-primary sm:text-5xl">Галерея</h2>
         <p className="mt-3 text-center text-foreground/60">Самые тёплые и яркие моменты</p>
         <div className="mt-12 columns-2 gap-4 lg:columns-3 [&>*]:mb-4">
-          {GALLERY.map((src, i) => (
-            <div key={i} className="break-inside-avoid overflow-hidden rounded-2xl border-4 border-white shadow-lg">
-              <img
-                src={src}
-                alt={`Фото ${i + 1}`}
-                className="w-full transition-transform duration-500 hover:scale-110"
-                style={{ aspectRatio: i % 2 ? '3/4' : '4/3', objectFit: 'cover' }}
-              />
+          {GALLERY.map((i) => (
+            <div
+              key={i}
+              className="flex break-inside-avoid items-center justify-center rounded-2xl border-4 border-dashed border-primary/30 bg-white/60 text-primary/40 shadow-lg transition-transform hover:-translate-y-1"
+              style={{ aspectRatio: i % 2 ? '3/4' : '4/3' }}
+            >
+              <div className="text-center">
+                <Icon name="ImagePlus" size={36} />
+                <p className="mt-1 text-xs font-semibold">Фото {i + 1}</p>
+              </div>
             </div>
           ))}
         </div>
