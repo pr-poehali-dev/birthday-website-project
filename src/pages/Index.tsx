@@ -67,11 +67,10 @@ const Index = () => {
           <div className="animate-fade-in">
             <span className="font-hand text-3xl text-secondary">Сегодня особенный день</span>
             <h1 className="mt-2 font-display text-5xl leading-tight text-primary drop-shadow-sm sm:text-6xl lg:text-7xl">
-              Поздравляем,<br />Андрей!
+              Поздравляем,<br />Папа!
             </h1>
             <p className="mt-6 max-w-md text-lg text-foreground/70">
-              Этот сайт создан с любовью в честь твоего дня рождения. Здесь собраны
-              важные даты, любимые фотографии и тёплые пожелания.
+              Этот сайт создан с любовью в честь твоего дня рождения от твоей семьи. Здесь собраны важные даты, любимые фотографии и тёплые пожелания.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" className="rounded-full" onClick={() => scrollTo('gallery')}>
