@@ -20,7 +20,7 @@ const DATES = [
 ];
 
 const GALLERY = [
-  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/a5849711-e046-4298-96ad-3a8213f37617.jpg',
+  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/87a9a589-5c9a-49ae-b720-1f0a2eb5a326.jpg',
   'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/c7e6e036-3743-40ba-9bd4-60f88957b2c2.jpg',
   'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/fa985cef-1e32-463f-99e4-ee3bb4eb2e12.jpg',
   'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/0a615323-d116-46d1-86f1-37888e60676c.jpg',
@@ -142,7 +142,7 @@ const Index = () => {
                 src={src}
                 alt={`Фото ${i + 1}`}
                 className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
-                style={i === 0 ? { objectPosition: 'left center' } : undefined}
+                style={i === 0 ? { objectPosition: 'center bottom' } : undefined}
               />
             </div>
           ))}
