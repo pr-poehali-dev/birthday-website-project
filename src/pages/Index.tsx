@@ -20,12 +20,15 @@ const DATES = [
 ];
 
 const GALLERY = [
-  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/87a9a589-5c9a-49ae-b720-1f0a2eb5a326.jpg',
-  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/c7e6e036-3743-40ba-9bd4-60f88957b2c2.jpg',
-  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/fa985cef-1e32-463f-99e4-ee3bb4eb2e12.jpg',
-  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/0a615323-d116-46d1-86f1-37888e60676c.jpg',
-  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/a4f83b30-5ee9-411c-85d5-43dc5b7416c6.jpg',
-  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/36f364b3-7543-4d29-9fdf-27af4d3a6cd0.jpg',
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/87a9a589-5c9a-49ae-b720-1f0a2eb5a326.jpg', position: 'center bottom' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/c7e6e036-3743-40ba-9bd4-60f88957b2c2.jpg', position: 'center center' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/fa985cef-1e32-463f-99e4-ee3bb4eb2e12.jpg', position: 'center center' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/0a615323-d116-46d1-86f1-37888e60676c.jpg', position: 'center center' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/a4f83b30-5ee9-411c-85d5-43dc5b7416c6.jpg', position: 'center center' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/36f364b3-7543-4d29-9fdf-27af4d3a6cd0.jpg', position: 'center center' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/2e0f1ac7-3717-445f-b5ef-3ea83bf82d1a.jpg', position: 'center 30%' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/99d168f4-da84-4d9b-bd3c-436a974010c9.jpg', position: 'center center' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/471e81e9-81a7-48cc-88e8-e85a75b97cbf.jpg', position: 'center top' },
 ];
 
 const Index = () => {
@@ -132,17 +135,17 @@ const Index = () => {
         <h2 className="text-center font-display text-4xl text-primary sm:text-5xl">Галерея</h2>
         <p className="mt-3 text-center text-foreground/60">Самые тёплые и яркие моменты</p>
         <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-3">
-          {GALLERY.map((src, i) => (
+          {GALLERY.map((photo, i) => (
             <div
               key={i}
               className="overflow-hidden rounded-2xl border-4 border-white shadow-lg transition-transform hover:-translate-y-1"
               style={{ aspectRatio: '1/1' }}
             >
               <img
-                src={src}
+                src={photo.src}
                 alt={`Фото ${i + 1}`}
                 className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
-                style={i === 0 ? { objectPosition: 'center bottom' } : undefined}
+                style={{ objectPosition: photo.position }}
               />
             </div>
           ))}
