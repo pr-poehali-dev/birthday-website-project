@@ -27,8 +27,8 @@ const GALLERY = [
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/a4f83b30-5ee9-411c-85d5-43dc5b7416c6.jpg', position: 'center center' },
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/36f364b3-7543-4d29-9fdf-27af4d3a6cd0.jpg', position: 'center center' },
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/2e0f1ac7-3717-445f-b5ef-3ea83bf82d1a.jpg', position: 'center 30%' },
-  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/99d168f4-da84-4d9b-bd3c-436a974010c9.jpg', position: 'center center' },
-  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/471e81e9-81a7-48cc-88e8-e85a75b97cbf.jpg', position: 'center top' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/582e5f2c-96b2-441b-b9b6-d33ad19a19c7.jpg', position: 'center center', contain: true },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/0ab18885-d069-4a33-9a26-2b5f6b35b208.jpg', position: 'center center', contain: true },
 ];
 
 const Index = () => {
@@ -76,7 +76,7 @@ const Index = () => {
       <section id="home" className="relative z-10 container mx-auto px-4 pb-24 pt-10">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="animate-fade-in">
-            <span className="font-hand text-3xl text-secondary">Сегодня особенный день</span>
+            <span className="font-hand text-4xl text-secondary sm:text-5xl">Сегодня особенный день</span>
             <h1 className="mt-2 font-display text-5xl leading-tight text-primary drop-shadow-sm sm:text-6xl lg:text-7xl">
               Поздравляем,<br />Папа!
             </h1>
@@ -144,7 +144,7 @@ const Index = () => {
               <img
                 src={photo.src}
                 alt={`Фото ${i + 1}`}
-                className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                className={`h-full w-full transition-transform duration-500 hover:scale-110 ${photo.contain ? 'object-contain' : 'object-cover'}`}
                 style={{ objectPosition: photo.position }}
               />
             </div>
