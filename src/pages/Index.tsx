@@ -196,7 +196,7 @@ const Index = () => {
           <audio
             controls
             className="w-full rounded-xl"
-            src="https://downloader.disk.yandex.ru/disk/2a6ca3f7affd0de875ad718e13bdb8857b7d9c4e63885e7c652919fe6b6d513d/6a372447/UidB0OMIcgbHqscIOEEnAC3RC3IY-7LiowVszMN96Xgz9-RJVtu60VXOrmxNPtXcI0WdNhpYMcwGgyEhnFMjnw%3D%3D?uid=0&filename=%D0%9F%D0%B0%D0%BF%D0%B0_%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B9__%D0%9D%D0%B0%D1%88_%D0%9E%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80_FULL_SONG_MusicGPT.mp3&disposition=attachment&hash=TcT7PJeOItGootZoI2BlRAxoBb7ttfKuUsezj4I3tWjDPrlEvUhkvQBAsQ%2BywPlsq/J6bpmRyOJonT3VoXnDag%3D%3D%3A&limit=0&content_type=audio%2Fmpeg&owner_uid=1159049266&fsize=3450505&hid=1a85b4c0bee0b1be6139ba30fc1bab5a&media_type=audio&tknv=v3&is_direct_zip_experiment=1"
+            src="https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/audio/papa-song.mp3"
           >
             Ваш браузер не поддерживает аудио.
           </audio>
