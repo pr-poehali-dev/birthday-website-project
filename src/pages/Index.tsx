@@ -13,9 +13,9 @@ const NAV = [
 ];
 
 const DATES = [
-  { year: '1995', title: 'Появился на свет', icon: 'Baby', text: 'Самый главный день — день рождения!' },
-  { year: '2013', title: 'Окончание школы', icon: 'GraduationCap', text: 'Аттестат и новые горизонты.' },
-  { year: '2018', title: 'Первая работа', icon: 'Briefcase', text: 'Старт большой карьеры.' },
+  { year: '1984', title: 'Появился на свет', icon: 'Baby', text: 'Самый главный день — день рождения!' },
+  { year: '2002', title: 'Окончание школы', icon: 'GraduationCap', text: 'Аттестат и новые горизонты.' },
+  { year: '2006', title: 'Свадьба', icon: 'Heart', text: 'Начало нашей общей истории!' },
   { year: '2026', title: 'Этот праздник', icon: 'PartyPopper', text: 'Новый юбилей и куча поздравлений!' },
 ];
 
@@ -24,8 +24,9 @@ const GALLERY = [0, 1, 2, 3, 4, 5];
 const Index = () => {
   const [wish, setWish] = useState({ name: '', text: '' });
   const [wishes, setWishes] = useState<{ name: string; text: string }[]>([
-    { name: 'Мама', text: 'Сыночек, будь всегда таким же счастливым! Люблю тебя.' },
-    { name: 'Друзья', text: 'С праздником! Пусть мечты сбываются, а удача не покидает!' },
+    { name: 'Жена', text: 'Любимый, ты лучший муж и отец на свете. С днём рождения!' },
+    { name: 'Сын', text: 'Папа, ты мой герой! Желаю тебе здоровья и счастья!' },
+    { name: 'Дочь', text: 'Папочка, ты самый лучший! Люблю тебя очень-очень!' },
   ]);
 
   const scrollTo = (id: string) =>
@@ -176,7 +177,7 @@ const Index = () => {
       </section>
 
       <footer className="relative z-10 py-10 text-center font-display text-xl text-primary">
-        С любовью и теплом 🎂🎈
+        С любовью и теплом от твоей семьи 🎂🎈
       </footer>
     </div>
   );
