@@ -27,8 +27,8 @@ const GALLERY = [
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/a4f83b30-5ee9-411c-85d5-43dc5b7416c6.jpg', position: 'center center' },
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/36f364b3-7543-4d29-9fdf-27af4d3a6cd0.jpg', position: 'center center' },
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/2e0f1ac7-3717-445f-b5ef-3ea83bf82d1a.jpg', position: 'center 30%' },
-  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/582e5f2c-96b2-441b-b9b6-d33ad19a19c7.jpg', position: 'center center', contain: true },
-  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/0ab18885-d069-4a33-9a26-2b5f6b35b208.jpg', position: 'center center', contain: true },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/582e5f2c-96b2-441b-b9b6-d33ad19a19c7.jpg', position: 'center top' },
+  { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/0ab18885-d069-4a33-9a26-2b5f6b35b208.jpg', position: 'center top' },
 ];
 
 const Index = () => {
@@ -56,7 +56,7 @@ const Index = () => {
       {/* NAV */}
       <header className="sticky top-0 z-40 backdrop-blur-md">
         <nav className="container mx-auto flex items-center justify-between py-4">
-          <span className="font-display text-2xl text-primary drop-shadow-sm">С Днём Рождения!</span>
+          <span className="font-display text-3xl text-primary drop-shadow-sm sm:text-4xl lg:text-5xl">С Днём Рождения!</span>
           <div className="flex gap-1 rounded-full bg-white/70 p-1 shadow-sm">
             {NAV.map((n) => (
               <button
