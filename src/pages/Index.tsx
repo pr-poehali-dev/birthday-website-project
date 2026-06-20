@@ -184,6 +184,25 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SONG */}
+      <section className="relative z-10 container mx-auto px-4 py-16">
+        <div className="mx-auto max-w-xl rounded-3xl border-4 border-white bg-white/80 p-8 shadow-2xl text-center">
+          <div className="mb-4 flex items-center justify-center gap-3">
+            <Icon name="Music" size={32} className="text-primary" />
+            <h2 className="font-display text-3xl text-primary">Песня для тебя</h2>
+            <Icon name="Music" size={32} className="text-primary" />
+          </div>
+          <p className="mb-6 text-foreground/60 font-hand text-lg">Специально для тебя, с любовью 🎵</p>
+          <audio
+            controls
+            className="w-full rounded-xl"
+            src="https://downloader.disk.yandex.ru/disk/2a6ca3f7affd0de875ad718e13bdb8857b7d9c4e63885e7c652919fe6b6d513d/6a372447/UidB0OMIcgbHqscIOEEnAC3RC3IY-7LiowVszMN96Xgz9-RJVtu60VXOrmxNPtXcI0WdNhpYMcwGgyEhnFMjnw%3D%3D?uid=0&filename=%D0%9F%D0%B0%D0%BF%D0%B0_%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B9__%D0%9D%D0%B0%D1%88_%D0%9E%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80_FULL_SONG_MusicGPT.mp3&disposition=attachment&hash=TcT7PJeOItGootZoI2BlRAxoBb7ttfKuUsezj4I3tWjDPrlEvUhkvQBAsQ%2BywPlsq/J6bpmRyOJonT3VoXnDag%3D%3D%3A&limit=0&content_type=audio%2Fmpeg&owner_uid=1159049266&fsize=3450505&hid=1a85b4c0bee0b1be6139ba30fc1bab5a&media_type=audio&tknv=v3&is_direct_zip_experiment=1"
+          >
+            Ваш браузер не поддерживает аудио.
+          </audio>
+        </div>
+      </section>
+
       <footer className="relative z-10 py-10 text-center font-display text-xl text-primary">
         С любовью и теплом от твоей семьи 🎂🎈
       </footer>
