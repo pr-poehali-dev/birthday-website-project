@@ -19,7 +19,14 @@ const DATES = [
   { year: '2026', title: 'Этот праздник', icon: 'PartyPopper', text: 'Новый юбилей и куча поздравлений!' },
 ];
 
-const GALLERY = [0, 1, 2, 3, 4, 5];
+const GALLERY = [
+  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/2a138b57-1d30-4d13-b136-7fb60502850e.jpg',
+  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/c7e6e036-3743-40ba-9bd4-60f88957b2c2.jpg',
+  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/fa985cef-1e32-463f-99e4-ee3bb4eb2e12.jpg',
+  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/0a615323-d116-46d1-86f1-37888e60676c.jpg',
+  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/a4f83b30-5ee9-411c-85d5-43dc5b7416c6.jpg',
+  'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/36f364b3-7543-4d29-9fdf-27af4d3a6cd0.jpg',
+];
 
 const Index = () => {
   const [wish, setWish] = useState({ name: '', text: '' });
@@ -123,17 +130,18 @@ const Index = () => {
       <section id="gallery" className="relative z-10 container mx-auto px-4 py-20">
         <h2 className="text-center font-display text-4xl text-primary sm:text-5xl">Галерея</h2>
         <p className="mt-3 text-center text-foreground/60">Самые тёплые и яркие моменты</p>
-        <div className="mt-12 columns-2 gap-4 lg:columns-3 [&>*]:mb-4">
-          {GALLERY.map((i) => (
+        <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-3">
+          {GALLERY.map((src, i) => (
             <div
               key={i}
-              className="flex break-inside-avoid items-center justify-center rounded-2xl border-4 border-dashed border-primary/30 bg-white/60 text-primary/40 shadow-lg transition-transform hover:-translate-y-1"
-              style={{ aspectRatio: i % 2 ? '3/4' : '4/3' }}
+              className="overflow-hidden rounded-2xl border-4 border-white shadow-lg transition-transform hover:-translate-y-1"
+              style={{ aspectRatio: '1/1' }}
             >
-              <div className="text-center">
-                <Icon name="ImagePlus" size={36} />
-                <p className="mt-1 text-xs font-semibold">Фото {i + 1}</p>
-              </div>
+              <img
+                src={src}
+                alt={`Фото ${i + 1}`}
+                className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+              />
             </div>
           ))}
         </div>
