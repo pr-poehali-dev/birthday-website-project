@@ -13,10 +13,14 @@ const NAV = [
 ];
 
 const DATES = [
-  { year: '1984', title: 'Появился на свет', icon: 'Baby', text: 'Самый главный день — день рождения!' },
-  { year: '2002', title: 'Окончание школы', icon: 'GraduationCap', text: 'Аттестат и новые горизонты.' },
-  { year: '2006', title: 'Свадьба', icon: 'Heart', text: 'Начало нашей общей истории!' },
-  { year: '2026', title: 'Этот праздник', icon: 'PartyPopper', text: 'Новый юбилей и куча поздравлений!' },
+  { year: '1984', title: 'Появился на свет', icon: 'Baby', text: 'Самый главный день — день рождения!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/d7bba6fe-9037-4351-9aa6-0cfa0201852c.jpg' },
+  { year: '2002', title: 'Окончание школы', icon: 'GraduationCap', text: 'Аттестат и новые горизонты.', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/bdf19560-3b46-40bd-bb8c-172f88b49608.jpg' },
+  { year: '2006', title: 'Свадьба', icon: 'Heart', text: 'Начало нашей общей истории!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/fc1d7fc5-dd92-4c43-b868-6ccd88ad2f27.jpg' },
+  { year: '2006', title: 'Венчание', icon: 'Church', text: 'Освящение нашего союза в церкви.', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/a5456e20-b3fb-4c5b-8cc0-a5d8729a2d0a.jpg' },
+  { year: '2008', title: 'Рождение сына', icon: 'Baby', text: 'Появился наш первенец — большое счастье!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/9ac71335-b205-4599-b088-add5eee19608.jpg' },
+  { year: '2011', title: 'Рождение дочери', icon: 'Star', text: 'Наша семья стала ещё счастливее!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/e2ddf174-b212-4085-a6e8-bde6950f2730.jpg' },
+  { year: '2011', title: 'Переезд в свой дом', icon: 'Home', text: 'Строительство и переезд в собственный дом!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/eb29201a-b239-4cd9-9632-bb78d2d6419c.jpg' },
+  { year: '2026', title: 'Этот праздник', icon: 'PartyPopper', text: 'Новый юбилей и куча поздравлений!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/ee87fa4c-fd0c-4dc9-89a2-eeff25a06a77.jpg' },
 ];
 
 const GALLERY = [
@@ -34,7 +38,7 @@ const GALLERY = [
 const Index = () => {
   const [wish, setWish] = useState({ name: '', text: '' });
   const [wishes, setWishes] = useState<{ name: string; text: string }[]>([
-    { name: 'Жена', text: 'С днем рождения!!!🎂 Ты самый важный человек в нашей жизни, мы безгранично любим тебя и всегда ждем с нетерпением твоего возвращения. Для меня ты всегда пример мужества, стойкости, силы и мудрости. Твоя доброта и чувство юмора делают каждый день ярче и радостнее. Желаю крепкого здоровья и исполнения всех заветных желаний. Пусть на работе будет поменьше работы , а мы тебя поменьше огорчали и почаще радовали хорошими новостями . Я счастлива, что ты есть в моей жизни!❤️🥰💋' },
+    { name: 'Жена', text: 'С днем рождения, Андрюша!!!🎂 Ты самый важный человек в нашей жизни, мы безгранично любим тебя и всегда ждем с нетерпением твоего возвращения. Для меня ты всегда пример мужества, стойкости, силы и мудрости. Твоя доброта и чувство юмора делают каждый день ярче и радостнее. Желаю крепкого здоровья и исполнения всех заветных желаний. Пусть на работе будет поменьше работы , а мы тебя поменьше огорчали и почаще радовали хорошими новостями . Я счастлива, что ты есть в моей жизни!❤️🥰💋' },
     { name: 'Дочь', text: 'Папуля поздравляю тебя с днем рождения!!! 🤗Ты самый лучший папа на свете, я бесконечно тебя люблю и ценю. 💞Ты для меня пример силы , мужества, стойкости и заботы. Я хочу быть похожей на тебя , ведь ты никогда не унываешь, а твоё чувство юмора заставляет улыбнуться даже в самый дождливый день ! Желаю тебе здоровья, терпения и чтобы мы тебя только радовали! ❤️💋😘' },
     { name: 'Сын', text: 'Папа, поздравляю тебя с днём рождения! Я тебя очень люблю и уважаю, для меня ты пример любимого мужа для своей жены и прекрасного отца для своих детей. 22 июня твой праздник, хоть ты в этот день и не находишься среди нас, дома, но ты всё равно духовно всегда с нами, а мы с тобой. Я тебя люблю папа, спасибо тебе за то, что ты у меня есть 💖' },
   ]);
@@ -117,11 +121,22 @@ const Index = () => {
           {DATES.map((d, i) => (
             <div
               key={i}
-              className="group rounded-3xl border border-white bg-white/80 p-6 text-center shadow-lg transition-transform hover:-translate-y-2"
+              className="group rounded-3xl border border-white bg-white/80 p-5 text-center shadow-lg transition-transform hover:-translate-y-2 flex flex-col"
             >
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-primary to-secondary text-white shadow-md transition-transform group-hover:scale-110">
-                <Icon name={d.icon} size={28} />
-              </div>
+              {d.photo ? (
+                <div className="relative mx-auto w-full overflow-hidden rounded-2xl border-4 border-white shadow-md" style={{ aspectRatio: '4/3' }}>
+                  <img
+                    src={d.photo}
+                    alt={d.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 rounded-2xl ring-4 ring-white/60 pointer-events-none" />
+                </div>
+              ) : (
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-primary to-secondary text-white shadow-md transition-transform group-hover:scale-110">
+                  <Icon name={d.icon} size={28} />
+                </div>
+              )}
               <div className="mt-4 font-display text-2xl text-primary">{d.year}</div>
               <h3 className="mt-1 text-lg font-bold">{d.title}</h3>
               <p className="mt-2 text-sm text-foreground/60">{d.text}</p>
