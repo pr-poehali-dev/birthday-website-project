@@ -17,7 +17,7 @@ const DATES = [
   { year: '2002', title: 'Окончание школы', icon: 'GraduationCap', text: 'Аттестат и новые горизонты.', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/bdf19560-3b46-40bd-bb8c-172f88b49608.jpg' },
   { year: '2006', title: 'Свадьба', icon: 'Heart', text: 'Начало нашей общей истории!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/fc1d7fc5-dd92-4c43-b868-6ccd88ad2f27.jpg' },
   { year: '2006', title: 'Венчание', icon: 'Church', text: 'Освящение нашего союза в церкви.', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/a5456e20-b3fb-4c5b-8cc0-a5d8729a2d0a.jpg' },
-  { year: '2008', title: 'Рождение сына', icon: 'Baby', text: 'Появился наш первенец — большое счастье!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/9ac71335-b205-4599-b088-add5eee19608.jpg' },
+  { year: '2008', title: 'Рождение сына', icon: 'Baby', text: 'Появился наш первенец — большое счастье!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/fba76e0c-4a92-44fc-abd3-3e6d939a6fbc.jpg', photoPosition: 'center top' },
   { year: '2011', title: 'Рождение дочери', icon: 'Star', text: 'Наша семья стала ещё счастливее!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/e2ddf174-b212-4085-a6e8-bde6950f2730.jpg' },
   { year: '2011', title: 'Переезд в свой дом', icon: 'Home', text: 'Строительство и переезд в собственный дом!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/eb29201a-b239-4cd9-9632-bb78d2d6419c.jpg' },
   { year: '2026', title: 'Этот праздник', icon: 'PartyPopper', text: 'Новый юбилей и куча поздравлений!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/ee87fa4c-fd0c-4dc9-89a2-eeff25a06a77.jpg' },
@@ -129,6 +129,7 @@ const Index = () => {
                     src={d.photo}
                     alt={d.title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style={{ objectPosition: d.photoPosition || 'center center' }}
                   />
                   <div className="absolute inset-0 rounded-2xl ring-4 ring-white/60 pointer-events-none" />
                 </div>
