@@ -20,7 +20,7 @@ const DATES = [
   { year: '2008', title: 'Рождение сына', icon: 'Baby', text: 'Появился наш первенец — большое счастье!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/fba76e0c-4a92-44fc-abd3-3e6d939a6fbc.jpg', photoPosition: 'center top' },
   { year: '2011', title: 'Рождение дочери', icon: 'Star', text: 'Наша семья стала ещё счастливее!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/e2ddf174-b212-4085-a6e8-bde6950f2730.jpg' },
   { year: '2011', title: 'Переезд в свой дом', icon: 'Home', text: 'Строительство и переезд в собственный дом!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/eb29201a-b239-4cd9-9632-bb78d2d6419c.jpg' },
-  { year: '2026', title: 'Этот праздник', icon: 'PartyPopper', text: 'Новый юбилей и куча поздравлений!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/ee87fa4c-fd0c-4dc9-89a2-eeff25a06a77.jpg' },
+  { year: '2026', title: 'Этот праздник', icon: 'PartyPopper', text: 'Новый юбилей и куча поздравлений!', photo: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/07398dd4-c272-42ba-b2e9-a762ba01f163.jpg', photoPosition: 'center bottom' },
 ];
 
 const GALLERY = [
