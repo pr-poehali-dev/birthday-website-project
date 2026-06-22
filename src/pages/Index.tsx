@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -35,21 +35,62 @@ const GALLERY = [
   { src: 'https://cdn.poehali.dev/projects/1cfaa32b-9a4d-4020-8de4-4ee2ef6b9f37/bucket/6a85fc3c-e636-492c-833d-136c245c5c74.jpg', position: 'center center', fill: true },
 ];
 
+const API_URL = 'https://functions.poehali.dev/34072b90-ddba-46f3-8a1c-f57b39edb1b2';
+
+const FIXED_WISHES = [
+  { id: -1, name: 'Жена', text: 'С днем рождения, Андрюша!!!🎂 Ты самый важный человек в нашей жизни, мы безгранично любим тебя и всегда ждем с нетерпением твоего возвращения. Для меня ты всегда пример мужества, стойкости, силы и мудрости. Твоя доброта и чувство юмора делают каждый день ярче и радостнее. Желаю крепкого здоровья и исполнения всех заветных желаний. Пусть на работе будет поменьше работы , а мы тебя поменьше огорчали и почаще радовали хорошими новостями . Я счастлива, что ты есть в моей жизни!❤️🥰💋', session_id: '' },
+  { id: -2, name: 'Дочь', text: 'Папуля поздравляю тебя с днем рождения!!! 🤗Ты самый лучший папа на свете, я бесконечно тебя люблю и ценю. 💞Ты для меня пример силы , мужества, стойкости и заботы. Я хочу быть похожей на тебя , ведь ты никогда не унываешь, а твоё чувство юмора заставляет улыбнуться даже в самый дождливый день ! Желаю тебе здоровья, терпения и чтобы мы тебя только радовали! ❤️💋😘', session_id: '' },
+  { id: -3, name: 'Сын', text: 'Папа, поздравляю тебя с днём рождения! Я тебя очень люблю и уважаю, для меня ты пример любимого мужа для своей жены и прекрасного отца для своих детей. 22 июня твой праздник, хоть ты в этот день и не находишься среди нас, дома, но ты всё равно духовно всегда с нами, а мы с тобой. Я тебя люблю папа, спасибо тебе за то, что ты у меня есть 💖', session_id: '' },
+];
+
+function getSessionId() {
+  let sid = localStorage.getItem('wish_session_id');
+  if (!sid) {
+    sid = Math.random().toString(36).slice(2) + Date.now().toString(36);
+    localStorage.setItem('wish_session_id', sid);
+  }
+  return sid;
+}
+
 const Index = () => {
   const [wish, setWish] = useState({ name: '', text: '' });
-  const [wishes, setWishes] = useState<{ name: string; text: string }[]>([
-    { name: 'Жена', text: 'С днем рождения, Андрюша!!!🎂 Ты самый важный человек в нашей жизни, мы безгранично любим тебя и всегда ждем с нетерпением твоего возвращения. Для меня ты всегда пример мужества, стойкости, силы и мудрости. Твоя доброта и чувство юмора делают каждый день ярче и радостнее. Желаю крепкого здоровья и исполнения всех заветных желаний. Пусть на работе будет поменьше работы , а мы тебя поменьше огорчали и почаще радовали хорошими новостями . Я счастлива, что ты есть в моей жизни!❤️🥰💋' },
-    { name: 'Дочь', text: 'Папуля поздравляю тебя с днем рождения!!! 🤗Ты самый лучший папа на свете, я бесконечно тебя люблю и ценю. 💞Ты для меня пример силы , мужества, стойкости и заботы. Я хочу быть похожей на тебя , ведь ты никогда не унываешь, а твоё чувство юмора заставляет улыбнуться даже в самый дождливый день ! Желаю тебе здоровья, терпения и чтобы мы тебя только радовали! ❤️💋😘' },
-    { name: 'Сын', text: 'Папа, поздравляю тебя с днём рождения! Я тебя очень люблю и уважаю, для меня ты пример любимого мужа для своей жены и прекрасного отца для своих детей. 22 июня твой праздник, хоть ты в этот день и не находишься среди нас, дома, но ты всё равно духовно всегда с нами, а мы с тобой. Я тебя люблю папа, спасибо тебе за то, что ты у меня есть 💖' },
-  ]);
+  const [wishes, setWishes] = useState<{ id: number; name: string; text: string; session_id: string }[]>([]);
+  const [sending, setSending] = useState(false);
+  const sessionId = useRef(getSessionId());
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then((r) => r.json())
+      .then((data) => setWishes(data.wishes || []))
+      .catch(() => {});
+  }, []);
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
-  const addWish = () => {
-    if (!wish.name.trim() || !wish.text.trim()) return;
-    setWishes((p) => [{ name: wish.name, text: wish.text }, ...p]);
-    setWish({ name: '', text: '' });
+  const addWish = async () => {
+    if (!wish.name.trim() || !wish.text.trim() || sending) return;
+    setSending(true);
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId.current },
+      body: JSON.stringify({ name: wish.name, text: wish.text }),
+    });
+    const data = await res.json();
+    setSending(false);
+    if (data.id) {
+      setWishes((p) => [data, ...p]);
+      setWish({ name: '', text: '' });
+    }
+  };
+
+  const deleteWish = async (id: number) => {
+    await fetch(API_URL, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId.current },
+      body: JSON.stringify({ id }),
+    });
+    setWishes((p) => p.filter((w) => w.id !== id));
   };
 
   return (
@@ -92,7 +133,7 @@ const Index = () => {
                 <Icon name="Images" size={18} /> Смотреть галерею
               </Button>
               <Button size="lg" variant="outline" className="rounded-full border-secondary text-secondary hover:bg-secondary hover:text-white" onClick={() => scrollTo('wishes')}>
-                <Icon name="Heart" size={18} /> Посмотреть пожелания
+                <Icon name="Heart" size={18} /> Оставить пожелание
               </Button>
             </div>
           </div>
@@ -171,12 +212,42 @@ const Index = () => {
       {/* WISHES */}
       <section id="wishes" className="relative z-10 container mx-auto px-4 py-20">
         <h2 className="text-center font-display text-4xl text-secondary sm:text-5xl">Пожелания</h2>
+        <p className="mt-3 text-center text-foreground/60">Напиши тёплые слова имениннику</p>
+
+        <div className="mx-auto mt-10 max-w-xl rounded-3xl border border-white bg-white/80 p-6 shadow-xl">
+          <Input
+            placeholder="Ваше имя"
+            value={wish.name}
+            onChange={(e) => setWish({ ...wish, name: e.target.value })}
+            className="rounded-xl"
+          />
+          <Textarea
+            placeholder="Ваше пожелание..."
+            value={wish.text}
+            onChange={(e) => setWish({ ...wish, text: e.target.value })}
+            className="mt-3 min-h-28 rounded-xl"
+          />
+          <Button className="mt-4 w-full rounded-full" size="lg" onClick={addWish} disabled={sending}>
+            <Icon name="Send" size={18} /> {sending ? 'Отправка...' : 'Отправить пожелание'}
+          </Button>
+        </div>
+
         <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
-          {wishes.map((w, i) => (
-            <div key={i} className="rounded-2xl border border-white bg-white/80 p-5 shadow-md">
-              <div className="flex items-center gap-2 text-primary">
-                <Icon name="Heart" size={18} />
-                <span className="font-bold">{w.name}</span>
+          {[...FIXED_WISHES, ...wishes].map((w) => (
+            <div key={w.id} className="rounded-2xl border border-white bg-white/80 p-5 shadow-md">
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 text-primary">
+                  <Icon name="Heart" size={18} />
+                  <span className="font-bold">{w.name}</span>
+                </div>
+                {w.session_id === sessionId.current && (
+                  <button
+                    onClick={() => deleteWish(w.id)}
+                    className="text-xs text-foreground/40 hover:text-red-400 transition-colors"
+                  >
+                    Удалить
+                  </button>
+                )}
               </div>
               <p className="mt-2 font-hand text-xl leading-snug text-foreground/80">{w.text}</p>
             </div>

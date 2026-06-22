@@ -1,0 +1,12 @@
+{
+  "tests": [
+    {
+      "name": "Get wishes",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"wishes": []},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
