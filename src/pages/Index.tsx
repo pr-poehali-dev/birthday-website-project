@@ -92,7 +92,7 @@ const Index = () => {
                 <Icon name="Images" size={18} /> Смотреть галерею
               </Button>
               <Button size="lg" variant="outline" className="rounded-full border-secondary text-secondary hover:bg-secondary hover:text-white" onClick={() => scrollTo('wishes')}>
-                <Icon name="Heart" size={18} /> Оставить пожелание
+                <Icon name="Heart" size={18} /> Посмотреть пожелания
               </Button>
             </div>
           </div>
@@ -171,26 +171,6 @@ const Index = () => {
       {/* WISHES */}
       <section id="wishes" className="relative z-10 container mx-auto px-4 py-20">
         <h2 className="text-center font-display text-4xl text-secondary sm:text-5xl">Пожелания</h2>
-        <p className="mt-3 text-center text-foreground/60">Напиши тёплые слова имениннику</p>
-
-        <div className="mx-auto mt-10 max-w-xl rounded-3xl border border-white bg-white/80 p-6 shadow-xl">
-          <Input
-            placeholder="Ваше имя"
-            value={wish.name}
-            onChange={(e) => setWish({ ...wish, name: e.target.value })}
-            className="rounded-xl"
-          />
-          <Textarea
-            placeholder="Ваше пожелание..."
-            value={wish.text}
-            onChange={(e) => setWish({ ...wish, text: e.target.value })}
-            className="mt-3 min-h-28 rounded-xl"
-          />
-          <Button className="mt-4 w-full rounded-full" size="lg" onClick={addWish}>
-            <Icon name="Send" size={18} /> Отправить пожелание
-          </Button>
-        </div>
-
         <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
           {wishes.map((w, i) => (
             <div key={i} className="rounded-2xl border border-white bg-white/80 p-5 shadow-md">
